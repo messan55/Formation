@@ -1,0 +1,4 @@
+com\loncoto\FirstToto\dao\TacheDAO.class
+com\loncoto\FirstToto\metier\Tache.class
+com\loncoto\FirstToto\dao\ITacheDAO.class
+com\loncoto\FirstToto\actions\IndexAction.class

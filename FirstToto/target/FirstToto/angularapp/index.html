@@ -51,7 +51,28 @@
     <div class="col-md-8" ng-controller="ToDoCtrl">
         <div id="contenu1">
             {{message}}
+            <div class="page-header">
+                nombre de taches {{taches.length}}
+            </div>
         </div>
+        <table class="table table-striped">
+        	<thead>
+        		<tr>
+        			<th>libelle</th>        			
+        			<th>date creation</th>
+                    <th>fini</th>
+                    <th>fini</th>
+       	 		</tr>
+       	 	</thead>
+       	 	<tbody>
+       	 		<tr ng-repeat="tache in taches">
+       	 			<td>{{tache.libelle}}</td>
+                    <td>{{tache.dateCreated}}</td>     	 			
+                    <td><input type="checkbox" ng-model="tache.completed"/></td>
+                    <td>{{tache.completed}}</td> 
+       	 		</tr>
+       	 	</tbody>
+        </table>
     </div>
     </div>
     </body>

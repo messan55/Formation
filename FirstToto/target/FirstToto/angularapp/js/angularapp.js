@@ -62,7 +62,7 @@ todoApp.controller("ToDoCtrl", function($scope, $http){
         }
     };
     
-    $scope.addNewTask = function(libelle, category){
+    /*$scope.addNewTask = function(libelle, category){
         var tid = $scope.taches.length + 1;
         var tdate = "" + new Date();
         $scope.taches.push({
@@ -72,7 +72,14 @@ todoApp.controller("ToDoCtrl", function($scope, $http){
             "id" : tid,
             "dateCreated" : tdate
         });
-    }
+    }*/
+    
+    $scope.addNewTask = function(libelle, category) {
+     $http.post('../rest/savetache/' + libelle + '/' + category,
+      {}).success(function(response) {
+         $scope.taches.push(response.tache);
+      });
+    };
 });
 
 todoApp.filter("completedTaskd", function(){

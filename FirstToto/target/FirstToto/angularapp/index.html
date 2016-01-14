@@ -51,9 +51,19 @@
     <div class="col-md-8" ng-controller="ToDoCtrl">
         <div id="contenu1">
             {{message}}
-            <div class="page-header">
-                nombre de taches {{taches.length}}
+            <div class="page-header" ng-hide="incompleteCount() == 0">
+               <h1>nombre de taches restantes <span class="label label-default" ng-class="warningLevel()">{{incompleteCount()}}</h1>
             </div>
+        </div>
+        <div>
+            <label>Libelle</label><input class="form-control" ng-model="tacheLibelle" />
+            <label>Categorie</label><input class="form-control" ng-model="tacheCategory" />
+            <span class="input-group-btn">
+                <button class="btn btn-default"
+                        ng-click="addNewTask(tacheLibelle, tacheCategory)"> 
+                        Add task
+                </button/>
+            </span>
         </div>
         <table class="table table-striped">
         	<thead>
@@ -65,14 +75,17 @@
        	 		</tr>
        	 	</thead>
        	 	<tbody>
-       	 		<tr ng-repeat="tache in taches">
+       	 		<tr ng-repeat="tache in taches | completedTaskd:showCompleted | orderBy:'category'">
        	 			<td>{{tache.libelle}}</td>
                     <td>{{tache.dateCreated}}</td>     	 			
                     <td><input type="checkbox" ng-model="tache.completed"/></td>
-                    <td>{{tache.completed}}</td> 
+                    <td>{{tache.completed}}</td>
        	 		</tr>
        	 	</tbody>
         </table>
+        <div class="checkbox-inline">
+            <label><input type="checkbox" ng-model="showCompleted"> Show Completed</label>
+        </div>
     </div>
     </div>
     </body>

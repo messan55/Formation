@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true"/>
+	<constant name="struts.action.extension" value=","/>
+    <constant name="struts.enable.SlashesInActionNames" value="true" />
+    <constant name="struts.allowed.action.names" value="[ a-zA-Z0-9.-/\éèà'-]*"></constant>
+
+    <package name="default" namespace="/" extends="json-default">
+
+        <default-action-ref name="index"/>
+
+        <action name="index" class="com.loncoto.tdfirstangular.actions.IndexAction" method="index" >
+            <result name="success">/index.jsp</result>
+        </action>
+        
+        <action name="rest/produit" class="com.loncoto.tdfirstangular.actions.IndexAction" method="index">
+        	<result name="success" type="json">
+        		<param name="includeProperties">
+        			^produits\[\d\]\.id$,
+        			^produits\[\d\]\.nom$,
+        			^produits\[\d\]\.prix$,
+        			^produits\[\d\]\.categorie$,
+        			^produits\[\d\]\.stock$
+        		</param>
+        	</result>
+        </action>
+        <action name="rest/saveproduit/*/*/*/*" class="com.loncoto.tdfirstangular.actions.IndexAction" method="save">
+			<param name="produitNom">{1}</param>
+			<param name="produitPrix">{2}</param>
+			<param name="produitCategorie">{3}</param>
+			<param name="produitStock">{4}</param>
+			<param name="produitID">0</param>
+			<result name="success" type="json">
+				<param name="includeProperties">
+					^produit\.id$,
+        			^produit\.nom$,
+        			^produit\.prix$,
+        			^produit\.categorie$,
+        			^produit\.stock$
+				</param>
+			</result>
+		</action>
+
+    </package>
+
+    <!-- Add addition packages and configuration here. -->
+</struts>

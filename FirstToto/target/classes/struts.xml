@@ -7,7 +7,7 @@
     <constant name="struts.devMode" value="true"/>
 	<constant name="struts.action.extension" value=","/>
     <constant name="struts.enable.SlashesInActionNames" value="true" />
-    <constant name="struts.allowed.action.names" value="[ a-zA-Z0-9.-/\-]*"></constant>
+    <constant name="struts.allowed.action.names" value="[ a-zA-Z0-9.-/\éèà'-]*"></constant>
 
     <package name="default" namespace="/" extends="json-default">
 

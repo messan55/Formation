@@ -1,0 +1,4 @@
+com\loncoto\tdfirstangular\metier\Produit.class
+com\loncoto\tdfirstangular\dao\IProduitDAO.class
+com\loncoto\tdfirstangular\actions\IndexAction.class
+com\loncoto\tdfirstangular\dao\ProduitDAO.class

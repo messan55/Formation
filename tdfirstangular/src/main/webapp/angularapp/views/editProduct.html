@@ -1,0 +1,14 @@
+<div>
+    <form name="addProductForm" novalidate ng-submit="addProduct(newProduct)">
+        <label>nom</label><input class="form-control" ng-model="produitNom" />
+        <label>prix</label><input class="form-control" ng-model="produitPrix" />
+        <label>categorie</label><input class="form-control" ng-model="produitCategorie" />
+        <label>stock</label><input class="form-control" ng-model="produitStock" />
+        <span class="input-group-btn">
+        <button class="btn btn-default"
+                ng-click="addNewTask(produitNom, produitPrix, produitCategorie, produitStock)"> 
+                Add task
+        </button/>
+        </span>
+    </form>
+</div>

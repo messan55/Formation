@@ -44,18 +44,9 @@
     </nav>
 
     <div class="container theme-showcase" role="main">
-    <div>
-            <label>nom</label><input class="form-control" ng-model="produitNom" />
-            <label>prix</label><input class="form-control" ng-model="produitPrix" />
-            <label>categorie</label><input class="form-control" ng-model="produitCategorie" />
-            <label>stock</label><input class="form-control" ng-model="produitStock" />
-            <span class="input-group-btn">
-                <button class="btn btn-default"
-                        ng-click="addNewTask(produitNom, produitPrix, produitCategorie, produitStock)"> 
-                        Add task
-                </button/>
-            </span>
-        </div>
+    <button id="bouton1" type="button" class="btn btn-primary" ng-click="navigateTo('views/editProduct.html')">Creer</button><br />
+    <div class="col-md-10" ng-include="currentView">
+    </div>
     <div class="col-md-8">
         <div>
             <span class="input-group-btn">
@@ -76,6 +67,12 @@
                     <td>{{produit.prix}}</td>
                     <td>{{produit.categorie}}</td>
                     <td>{{produit.stock}}</td>
+                    <td>
+	                    <button class="btn btn-warning"
+	                            ng-click="deleteTask(idProduit)"> 
+	                            Delete
+	                    </button/>
+                    </td>
        	 		</tr>
        	 	</tbody>
         </table>

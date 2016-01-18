@@ -21,6 +21,17 @@ todoApp.controller("ToDoCtrl", function($scope, $http){
          $scope.produits.push(response.produit);
       });
     };
+    
+    $scope.deleteTask = function(id) {
+        $http.post('../rest/deleteproduit/' + id,
+        {});
+    };
+    
+    $scope.currentView = 'index.html';      
+    $scope.navigateTo = function(view) {
+        $scope.currentView = view;
+    };
+
 });
 
 todoApp.filter("completedTaskd", function(){

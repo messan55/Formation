@@ -1,0 +1,32 @@
+body {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+
+.drop-box{
+	background: #E8E8E8;
+	border: 5px dashed #DDD;
+	width: 200ps;
+	height: 70px;
+	text-align: center;
+	padding-top: 25px;
+	margin: 10px;
+}
+
+.dragover{
+	border: 5px dashed #0000FF;
+}
